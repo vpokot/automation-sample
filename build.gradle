@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "io.qameta.allure.gradle.allure:allure-plugin:2.9.6"
+    }
+}
+
+plugins {
+    id 'java'
+    id "io.qameta.allure" version "2.9.6"
+}
+
+apply plugin: "io.qameta.allure"
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'javax.activation:activation:1.1'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.1'
+
+    implementation 'io.qameta.allure:allure-rest-assured:2.18.0'
+    implementation 'io.qameta.allure:allure-testng:2.18.0'
+
+    implementation 'org.apache.commons:commons-lang3:3.0'
+    implementation 'org.apache.commons:commons-math3:3.6.1'
+
+    implementation 'org.aeonbits.owner:owner:1.0.4'
+    testImplementation 'org.testng:testng:7.6.0'
+    testImplementation 'io.rest-assured:rest-assured:5.0.1'
+}
+
+test {
+    useTestNG() {
+        suites "src/test/resources/testSuite.xml"
+    }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Jobcard suite">
+    <test name="Get Parts Master">
+        <classes>
+            <class name="com.cnh.test.jobcard.GetPartsMasterTest"/>
+        </classes>
+    </test>
+</suite>
